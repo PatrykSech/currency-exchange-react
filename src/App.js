@@ -1,10 +1,8 @@
 import { currencies } from "./currencies"
 import { useState } from "react";
-import { Form } from "./Form";
+import { Form } from "./form";
 
 function App() {
-
-  // funkcja licząca
 
   const [result, setResult] = useState();
 

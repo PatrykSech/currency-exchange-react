@@ -1,6 +1,6 @@
 export const currencies = [
-    { name: "USD", rate: 4 },
-    { name: "GBP", rate: 5 },
-    { name: "AUD", rate: 3 },
+    { id: 1, name: "USD", rate: 4 },
+    { id: 2, name: "GBP", rate: 5 },
+    { id: 3, name: "AUD", rate: 3 },
 ]
 

@@ -1,14 +1,15 @@
-import { useState } from "react";
+const Result = ({result}) => (
+    <p>
+        {result === undefined ? "Policz coś" : (
+            <>
+            {result.sourceAmount.toFixed(2)}{" "}PLN{" "}={" "}
 
-const [result, setResult] = useState();
+            <strong>
+                {result.targetAmount.toFixed(2)}{" "}{result.currency}
+            </strong>
+            </>
+        )}
+    </p>
+);
 
-const calculateResult = ({currency, amount}) => {
-    const rate = currency.find(({name}) => name === currency.rate
-
-)};
-
-const ({
-    targetAmount: +amount,
-    sourceAmount: amount / rate,
-    currency,
-})
+export default Result;

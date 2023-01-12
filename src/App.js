@@ -1,19 +1,34 @@
 import RenderList from "./render";
 import Result from "./result";
-import {useState} from "react";
+import { useState } from "react";
 import currencies from "./currencies"
 
 function App() {
 
+  // obsługa formularzy
+
   const onFormSubmit = (event) => {
     event.preventDefault();
-    console.log(`Chcesz wymienić: ${amount}`)
   };
 
   const [amount, setAmount] = useState("");
-
   const [currency, setCurrency] = useState("")
-  const onSelectChange = ({target}) => setCurrency(target.value);
+
+  const onSelectChange = ({ target }) => setCurrency(target.value);
+
+  // funkcja licząca
+
+  const [result, setResult] = useState();
+
+  const calculateResult = (currency, amount) => {
+    const rate = currencies.find(({ name }) => name === currency).rate;
+
+    setResult({
+      targetAmount: +amount,
+      sourceAmount: amount / rate,
+      currency,
+    });
+  };
 
   return (
     <body>
@@ -33,7 +48,7 @@ function App() {
                 <label>
                   <input
                     value={amount}
-                    onChange={({target}) => setAmount(target.value)}
+                    onChange={({ target }) => setAmount(target.value)}
                     placeholder="PLN"
                     type="number"
                     name="kwota"
@@ -47,27 +62,25 @@ function App() {
               <p>Chcę otrzymać :</p>
 
               <p>
-              <RenderList
-               value={currency}
-               onChange={onSelectChange}
-               currencies={currencies}
-               className="form__currency" />
+                <RenderList
+                  value={currency}
+                  onChange={onSelectChange}
+                  currencies={currencies}
+                  className="form__currency" />
               </p>
 
             </fieldset>
 
             <button className="form__button">Wyślij</button>
+
             <p>
-            <Result
-            currency={currency}
-            amount={amount}
-          />
+            <Result result={result} />
             </p>
           </form>
         </section>
       </main>
     </body>
   );
-}
+};
 
 export default App;

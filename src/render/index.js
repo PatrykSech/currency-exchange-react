@@ -1,6 +1,7 @@
-const currenciesName = currency => `${currency.name}`
+export const Render = ({currency, onSelectChange, currencies}) => {
+    const currenciesName = currency => `${currency.name}`
 
-const renderCurrencies = ({currency, onSelectChange, currencies}) => (
+    return(
     <label>
         <select
         value={currency}
@@ -13,6 +14,5 @@ const renderCurrencies = ({currency, onSelectChange, currencies}) => (
         ))};
         </select>
     </label>
-);
-
-export default renderCurrencies;
+    )
+};

@@ -1,3 +1,5 @@
+import "./style.css";
+
 export const Render = ({currency, onSelectChange, currencies}) => {
     const currenciesName = currency => `${currency.name}`
 
@@ -6,7 +8,7 @@ export const Render = ({currency, onSelectChange, currencies}) => {
         <select
         value={currency}
         onChange={onSelectChange}
-        className="form__currency">
+        className="select">
         {currencies.map(currency => (
             <option>
                 {currenciesName(currency)}

@@ -1,10 +1,12 @@
+import "./style.css"
+
 export const Result = ({ result }) => (
-    <p>
+    <p className="result">
         {result === undefined ? "" : (
             <>
                 {result.targetAmount.toFixed(2)}{" "}PLN{" "}={" "}
                 <strong>
-                    {result.sourceAmount.toFixed(2)}{" "}{result.currency}
+                    {result.sourceAmount.toFixed(2)}{ " "}{result.currency}
                 </strong>
             </>
         )}

@@ -8,7 +8,11 @@ html {
 }
 
 #root {
+  font-family: 'Montserrat', sans-serif;
   max-width: 800px;
   margin: 10px auto;
-  font-family: 'Alexandria', sans-serif;
+  background-image: url(./images/graph1.jpeg);
+  background-size: cover;
+  min-height: 100vh;
+  background-repeat: no-repeat;
 }

@@ -1,7 +1,8 @@
-import { Render } from "../render";
+import { Render } from "../select";
 import { Result } from "../result";
 import { useState } from "react";
 import { currencies } from "../currencies";
+import "./style.css";
 
 export const Form = ({calculateResult, result}) => {
 
@@ -16,16 +17,19 @@ export const Form = ({calculateResult, result}) => {
 return (
     <body>
       <main>
-        <section className="section">
-          <form onSubmit={onFormSubmit}>
-            <fieldset className="form__fieldset">
+        <section>
+          <h1 className="header">Wymiana walut</h1>
+          <form
+           onSubmit={onFormSubmit}
+           className="form"
+           >
+            <fieldset
+            className="fieldset"
+            >
 
-              <legend
-                className="form__legend">
-                Wymiana walut
-              </legend>
 
-              <p>Wprowadź kwotę w PLN :</p>
+
+              <p className="paragraph">Wprowadź kwotę w PLN :</p>
 
               <p>
                 <label>
@@ -36,29 +40,34 @@ return (
                     type="number"
                     name="kwota"
                     required
-                    className="form__label"
                     min="1"
+                    className="input"
                   />
                 </label>
               </p>
 
-              <p>Chcę otrzymać :</p>
+              <p className="paragraph">Chcę otrzymać :</p>
 
               <p>
                 <Render
                   value={currency}
                   onChange={({ target }) => setCurrency(target.value)}
                   currencies={currencies}
-                  className="form__currency" />
+                />
               </p>
 
             </fieldset>
 
-            <button className="form__button">Wyślij</button>
+            <button
+            className="button"
+            >
+              Wyślij
+            </button>
 
             <p>
             <Result result={result} />
             </p>
+
           </form>
         </section>
       </main>

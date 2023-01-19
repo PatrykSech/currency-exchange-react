@@ -2,6 +2,13 @@
     color: white;
 }
 
+.header {
+    font-size: 32px;
+    color: white;
+    display: flex;
+    justify-content: center;
+}
+
 .fieldset {
     border-radius: 10px;
     border: 2px solid #e07a5f;

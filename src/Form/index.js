@@ -4,33 +4,27 @@ import { useState } from "react";
 import { currencies } from "../currencies";
 import "./style.css";
 
-export const Form = ({calculateResult, result}) => {
+export const Form = ({ calculateResult, result }) => {
 
-    const [amount, setAmount] = useState("");
-    const [currency, setCurrency] = useState(currencies[0].name)
+  const [amount, setAmount] = useState("");
+  const [currency, setCurrency] = useState(currencies[0].name)
 
-    const onFormSubmit = (event) => {
-        event.preventDefault();
-        calculateResult(currency, amount);
-      };
+  const onFormSubmit = (event) => {
+    event.preventDefault();
+    calculateResult(currency, amount);
+  };
 
-return (
+  return (
     <body>
       <main>
         <section>
           <h1 className="header">Wymiana walut</h1>
           <form
-           onSubmit={onFormSubmit}
-           className="form"
-           >
-            <fieldset
-            className="fieldset"
-            >
-
-
-
-              <p className="paragraph">Wprowadź kwotę w PLN :</p>
-
+            onSubmit={onFormSubmit}
+            className="form"
+          >
+            <fieldset className="fieldset">
+            <p className="paragraph">Wprowadź kwotę w PLN :</p>
               <p>
                 <label>
                   <input
@@ -45,9 +39,7 @@ return (
                   />
                 </label>
               </p>
-
-              <p className="paragraph">Chcę otrzymać :</p>
-
+            <p className="paragraph">Chcę otrzymać :</p>
               <p>
                 <Render
                   value={currency}
@@ -55,19 +47,13 @@ return (
                   currencies={currencies}
                 />
               </p>
-
             </fieldset>
-
-            <button
-            className="button"
-            >
+            <button className="button">
               Wyślij
             </button>
-
             <p>
-            <Result result={result} />
+              <Result result={result} />
             </p>
-
           </form>
         </section>
       </main>

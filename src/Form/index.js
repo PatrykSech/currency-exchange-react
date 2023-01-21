@@ -1,4 +1,4 @@
-import { Render } from "../select";
+import { Select } from "../select";
 import { Result } from "../result";
 import { useState } from "react";
 import { currencies } from "../currencies";
@@ -41,9 +41,9 @@ export const Form = ({ calculateResult, result }) => {
               </p>
             <p className="paragraph">Chcę otrzymać :</p>
               <p>
-                <Render
+                <Select
                   value={currency}
-                  onChange={({ target }) => setCurrency(target.value)}
+                  onSelectChange={({ target }) => setCurrency(target.value)}
                   currencies={currencies}
                 />
               </p>

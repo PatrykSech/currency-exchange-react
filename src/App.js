@@ -8,6 +8,7 @@ function App() {
 
   const calculateResult = (currency, amount) => {
     const rate = currencies.find(({ name }) => name === currency).rate;
+    console.log(rate);
 
     setResult({
       targetAmount: +amount,

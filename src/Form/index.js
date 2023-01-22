@@ -2,6 +2,7 @@ import { Select } from "../select";
 import { Result } from "../result";
 import { useState } from "react";
 import { currencies } from "../currencies";
+import Clock from "../clock";
 import "./style.css";
 
 export const Form = ({ calculateResult, result }) => {
@@ -24,6 +25,7 @@ export const Form = ({ calculateResult, result }) => {
             className="form"
           >
             <fieldset className="fieldset">
+             <Clock />
             <p className="paragraph">Wprowadź kwotę w PLN :</p>
               <p>
                 <label>

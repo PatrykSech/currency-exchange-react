@@ -2,26 +2,26 @@ import styled from "styled-components";
 
 export const Header = styled.h1`
     font-size: 32px;
-    color: white;
+    color: ${({ theme }) => theme.color.white};
     display: flex;
     justify-content: center;
     text-transform: uppercase;
 `
 
 export const Container = styled.form`
-    background-color: #3d405b;
+    background-color: ${({ theme }) => theme.color.gunpowder};
     padding: 15px;
     border-radius: 15px;
 `
 
 export const Paragraph = styled.p`
-    color: white;
+    color: ${({ theme }) => theme.color.white};
 `
 
 export const Button = styled.button`
     border-radius: 10px;
-    background-color: #e07a5f;
-    color: #fff;
+    background-color: ${({ theme }) => theme.color.terracotta};
+    color: ${({ theme }) => theme.color.white};
     border: none;
     padding: 10px 20px;
     margin-top: 5px;
@@ -37,7 +37,7 @@ export const Input = styled.input`
 
 export const Fieldset = styled.fieldset`
     border-radius: 10px;
-    border: 2px solid #e07a5f;
+    border: 2px solid ${({ theme }) => theme.color.terracotta};
     margin-bottom: 6px;
     overflow-x: auto;
 `

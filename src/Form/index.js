@@ -2,8 +2,8 @@ import { Select } from "../select";
 import { Result } from "../result";
 import { useState } from "react";
 import { currencies } from "../currencies";
-import Clock from "../clock";
-import { Header, Container, Paragraph, Button, Input, Fieldset, Body} from "./styled"
+import Clock from "../Clock";
+import { Header, Container, Paragraph, Button, Input, Fieldset } from "./styled"
 
 export const Form = ({ calculateResult, result }) => {
 

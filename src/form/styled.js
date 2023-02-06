@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { css } from "styled-components";
 
 export const Header = styled.h1`
     font-size: 32px;
@@ -16,6 +17,10 @@ export const Container = styled.form`
 
 export const Paragraph = styled.p`
     color: ${({ theme }) => theme.color.white};
+
+    ${({rateinfo}) => rateinfo && css`
+        text-align: center;
+    `}
 `
 
 export const Button = styled.button`

@@ -5,7 +5,7 @@ import { currencies } from "../currencies";
 import Clock from "../Clock";
 import { Header, Container, Paragraph, Button, Input, Fieldset } from "./styled"
 
-export const Form = ({ calculateResult, result }) => {
+export const Form = ({ calculateResult, result, ratesData }) => {
 
   const [amount, setAmount] = useState("");
   const [currency, setCurrency] = useState(currencies[0].name)
@@ -38,10 +38,20 @@ export const Form = ({ calculateResult, result }) => {
               <Select
                 value={currency}
                 onSelectChange={({ target }) => setCurrency(target.value)}
-                currencies={currencies}
-              />
+              >
+                {Object.keys(ratesData.rates).map(((currency) => (
+                  <option
+                    as="select"
+                    key={currency}
+                    value={currency}
+                    >
+                      {currency}
+                    </option>
+                )))}
+              </Select>
           </Fieldset>
-          <Button>Wyślij</Button>
+          <Button>Przelicz!</Button>
+          <Paragraph rateinfo>Kursy walut pobierane są z Europejskiego Banku Centralnego. <br/> Aktualne na dzień:<strong> N/A</strong></Paragraph>
           <Result result={result} />
         </Container>
       </main>

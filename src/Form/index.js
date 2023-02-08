@@ -1,7 +1,6 @@
 import { Select } from "../select";
 import { Result } from "../result";
 import { useState } from "react";
-import { currencies } from "../currencies";
 import Clock from "../Clock";
 import { useRatesData } from "../useRatesData";
 import { Header, Container, Paragraph, Button, Input, Fieldset, Loading, Failure } from "./styled"
@@ -20,8 +19,8 @@ export const Form = () => {
     });
   };
 
-  const [amount, setAmount] = useState("EUR");
-  const [currency, setCurrency] = useState(currencies[0].name)
+  const [amount, setAmount] = useState("");
+  const [currency, setCurrency] = useState("EUR");
 
   const onFormSubmit = (event) => {
     event.preventDefault();

@@ -14,7 +14,7 @@ export const useRatesData = () => {
                     throw new Error(response.statusText);
                 }
             
-                const { rates, date } = response.json();
+                const { rates, date } = await response.json();
 
                 return setRatesData({
                    state: "succes",

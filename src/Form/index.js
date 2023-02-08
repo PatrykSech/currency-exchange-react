@@ -3,11 +3,24 @@ import { Result } from "../result";
 import { useState } from "react";
 import { currencies } from "../currencies";
 import Clock from "../Clock";
-import { Header, Container, Paragraph, Button, Input, Fieldset } from "./styled"
+import { useRatesData } from "../useRatesData";
+import { Header, Container, Paragraph, Button, Input, Fieldset, Loading, Failure } from "./styled"
 
-export const Form = ({ calculateResult, result, ratesData }) => {
+export const Form = () => {
+  const [result, setResult] = useState();
+  const ratesData = useRatesData();
 
-  const [amount, setAmount] = useState("");
+  const calculateResult = (currency, amount) => {
+    const rate = ratesData.rates[currency];
+
+    setResult({
+      targetAmount: +amount,
+      sourceAmount: amount * rate,
+      currency,
+    });
+  };
+
+  const [amount, setAmount] = useState("EUR");
   const [currency, setCurrency] = useState(currencies[0].name)
 
   const onFormSubmit = (event) => {
@@ -16,10 +29,25 @@ export const Form = ({ calculateResult, result, ratesData }) => {
   };
 
   return (
-    <body>
-      <main>
-        <Header>Wymiana walut</Header>
-        <Container onSubmit={onFormSubmit}>
+    <form onSubmit={onFormSubmit}>
+      <Header>
+        Przelicznik walut
+      </Header>
+      {ratesData.state === "loading"
+        ? (
+          <Loading>
+            Sekundka... Ładuje kursy walut z Europejskiego Banku Centralnego.
+          </Loading>
+        )
+        : (
+          ratesData.state === "error"
+        ? (
+            <Failure>
+              Hmm...Coś poszło nie tak. Sprawdz swoje polączenie z internetem.
+            </Failure>
+        ) : (
+      <>
+        <Container>
           <Fieldset>
             <Clock />
             <Paragraph>Wprowadź kwotę w PLN :</Paragraph>
@@ -41,7 +69,6 @@ export const Form = ({ calculateResult, result, ratesData }) => {
               >
                 {Object.keys(ratesData.rates).map(((currency) => (
                   <option
-                    as="select"
                     key={currency}
                     value={currency}
                     >
@@ -54,7 +81,8 @@ export const Form = ({ calculateResult, result, ratesData }) => {
           <Paragraph rateinfo>Kursy walut pobierane są z Europejskiego Banku Centralnego. <br/> Aktualne na dzień:<strong> N/A</strong></Paragraph>
           <Result result={result} />
         </Container>
-      </main>
-    </body>
+      </>
+      ))}
+    </form>
   );
 };

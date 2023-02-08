@@ -46,3 +46,9 @@ export const Fieldset = styled.fieldset`
     margin-bottom: 6px;
     overflow-x: auto;
 `
+export const Loading = styled.p`
+    color: ${({ theme }) => theme.color.teal};
+`
+export const Failure = styled.p`
+    color: ${({ theme }) => theme.color.crimson};
+`

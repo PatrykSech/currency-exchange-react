@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Result } from "../result";
+import { currencies } from "./currencies";
 import Clock from "../Clock";
 import {  Header,
           Container,
@@ -14,6 +15,9 @@ import { useRatesData } from "../useRatesData";
 
 export const Form = () => {
   const [result, setResult] = useState();
+  const [amount, setAmount] = useState("");
+  const [currency, setCurrency] = useState(currencies[0].name);
+  
   const ratesData = useRatesData();
 
   const calculateResult = (currency, amount) => {
@@ -25,9 +29,6 @@ export const Form = () => {
       currency,
     });
   };
-
-  const [amount, setAmount] = useState("");
-  const [currency, setCurrency] = useState("EUR");
 
   const onFormSubmit = (event) => {
     event.preventDefault();

@@ -1,9 +1,16 @@
-import { Select } from "../select";
-import { Result } from "../result";
 import { useState } from "react";
+import { Result } from "../result";
 import Clock from "../Clock";
+import {  Header,
+          Container,
+          Paragraph,
+          Button,
+          Input,
+          Fieldset,
+          Loading,
+          Failure,
+          Field } from "./styled"
 import { useRatesData } from "../useRatesData";
-import { Header, Container, Paragraph, Button, Input, Fieldset, Loading, Failure } from "./styled"
 
 export const Form = () => {
   const [result, setResult] = useState();
@@ -62,7 +69,8 @@ export const Form = () => {
                 />
               </label>
             <Paragraph>Chcę otrzymać :</Paragraph>
-              <Select
+              <Field
+                as="select"
                 value={currency}
                 onSelectChange={({ target }) => setCurrency(target.value)}
               >
@@ -74,10 +82,10 @@ export const Form = () => {
                       {currency}
                     </option>
                 )))}
-              </Select>
+              </Field>
           </Fieldset>
           <Button>Przelicz!</Button>
-          <Paragraph rateinfo>Kursy walut pobierane są z Europejskiego Banku Centralnego. <br/> Aktualne na dzień:<strong> N/A</strong></Paragraph>
+          <Paragraph rateinfo>Kursy walut pobierane są z Europejskiego Banku Centralnego. <br/> Aktualne na dzień:<strong>{ratesData.date}</strong></Paragraph>
           <Result result={result} />
         </Container>
       </>

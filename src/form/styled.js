@@ -52,3 +52,10 @@ export const Loading = styled.p`
 export const Failure = styled.p`
     color: ${({ theme }) => theme.color.crimson};
 `
+export const Field = styled.select`
+    border: none;
+    border-radius: 10px;
+    padding: 6px 10px;
+    background-color: ${({ theme }) => theme.color.terracotta};
+    color: ${({ theme }) => theme.color.white};
+`

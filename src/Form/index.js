@@ -43,16 +43,16 @@ export const Form = () => {
       {ratesData.state === "loading"
         ? (
           <Loading>
-            Sekundka... Ładuje kursy walut z Europejskiego Banku Centralnego.
+            Sekundka... ⏳ Ładuje kursy walut z Europejskiego Banku Centralnego.
           </Loading>
         )
         : (
           ratesData.state === "error"
         ? (
             <Failure>
-              Hmm...Coś poszło nie tak. Sprawdz swoje polączenie z internetem.
+              Hmm... Coś poszło nie tak. Sprawdź swoje połączenie z internetem. 😬
             </Failure>
-        ) : (
+        ) : 
       <>
         <Container>
           <Fieldset>
@@ -64,7 +64,7 @@ export const Form = () => {
                   onChange={({ target }) => setAmount(target.value)}
                   placeholder="PLN"
                   type="number"
-                  name="kwota"
+                  name="amount"
                   required
                   min="1"
                 />
@@ -73,9 +73,9 @@ export const Form = () => {
               <Field
                 as="select"
                 value={currency}
-                onSelectChange={({ target }) => setCurrency(target.value)}
+                onChange={({ target }) => setCurrency(target.value)}
               >
-                {Object.keys(ratesData.rates).map(((currency) => (
+                {Object.keys(ratesData.rates).map((currency => (
                   <option
                     key={currency}
                     value={currency}
@@ -86,11 +86,11 @@ export const Form = () => {
               </Field>
           </Fieldset>
           <Button>Przelicz!</Button>
-          <Paragraph rateinfo>Kursy walut pobierane są z Europejskiego Banku Centralnego. <br/> Aktualne na dzień:<strong>{ratesData.date}</strong></Paragraph>
+          <Paragraph rateinfo>Kursy walut pobierane są z Europejskiego Banku Centralnego. <br/> Aktualne na dzień:<strong>&nbsp;{ratesData.date}</strong></Paragraph>
           <Result result={result} />
         </Container>
       </>
-      ))}
+      )}
     </form>
   );
 };

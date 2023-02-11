@@ -47,10 +47,18 @@ export const Fieldset = styled.fieldset`
     overflow-x: auto;
 `
 export const Loading = styled.p`
-    color: ${({ theme }) => theme.color.teal};
+    color: ${({ theme }) => theme.color.white};
+    background-color: ${({ theme }) => theme.color.gunpowder};
+    padding: 30px 0px;
+    border-radius: 15px;
+    text-align: center;
 `
 export const Failure = styled.p`
-    color: ${({ theme }) => theme.color.crimson};
+    color: ${({ theme }) => theme.color.white};
+    background-color: ${({ theme }) => theme.color.crimsone};
+    padding: 30px 0px;
+    border-radius: 15px;
+    text-align: center;;
 `
 export const Field = styled.select`
     border: none;

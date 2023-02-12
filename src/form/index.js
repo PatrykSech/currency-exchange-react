@@ -24,7 +24,7 @@ export const Form = () => {
     const rate = ratesData.rates[currency];
 
     setResult({
-      targetAmount: +amount,
+      sourceTarget: +amount,
       sourceAmount: amount * rate,
       currency,
     });
@@ -36,7 +36,7 @@ export const Form = () => {
   };
 
   return (
-    <form onSubmit={onFormSubmit}>
+    <main onSubmit={onFormSubmit}>
       <Header>
         Przelicznik walut
       </Header>
@@ -91,6 +91,6 @@ export const Form = () => {
         </Container>
       </>
       )}
-    </form>
+    </main>
   );
 };

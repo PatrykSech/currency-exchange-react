@@ -1,4 +1,4 @@
-import { Form } from "./form";
+import { Form } from "./tempForm";
 import { Container } from "./styled";
 
 function App() {
